@@ -108,11 +108,22 @@
             color: var(--muted);
         }
 
-        .hero img {
+        .hero-photo {
+            border-radius: 36px;
+            overflow: hidden;
+            background: transparent;
+            isolation: isolate;
+        }
+
+        .hero-photo img {
             width: 100%;
-            height: 260px;
-            object-fit: cover;
-            border-radius: 8px;
+            height: auto;
+            max-height: 480px;
+            display: block;
+            object-fit: contain;
+            object-position: center;
+            border-radius: 36px;
+            clip-path: inset(0 round 36px);
         }
 
         section {
@@ -267,9 +278,8 @@
                     style="display:inline-block; padding:10px 14px; background:#0b5bd3; color:#fff; border-radius:6px; text-decoration:none;">Get
                     in touch</a>
             </div>
-            <div>
-                <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='400'><rect width='600' height='400' fill='%23cccccc'/><text x='300' y='200' text-anchor='middle' fill='%23666' font-family='Arial' font-size='20'>Stock image placeholder</text></svg>"
-                    alt="Profile placeholder" />
+            <div class="hero-photo">
+                <img src="photos/hawt_dex.jpg" alt="Dexter Syndergaard" />
             </div>
         </section>
 
