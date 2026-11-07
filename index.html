@@ -1,402 +1,267 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Dexter Syndergaard - Resume Website</title>
-    <style>
-        :root {
-            --bg: #f7f7fb;
-            --fg: #111;
-            --muted: #555;
-            --primary: #0b5bd3;
-            --card: #ffffff;
-            --shadow: 0 6px 20px rgba(0, 0, 0, .08);
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            margin: 0;
-            font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
-            color: var(--fg);
-            background: var(--bg);
-            line-height: 1.6;
-        }
-
-        .container {
-            width: min(1100px, 92%);
-            margin: 0 auto;
-        }
-
-        /* Skip link for accessibility */
-        .skip-link {
-            position: absolute;
-            left: 0;
-            top: -999px;
-            background: #111;
-            color: #fff;
-            padding: 8px 12px;
-            border-radius: 0 0 6px 6px;
-            z-index: 100;
-        }
-
-        .skip-link:focus {
-            top: 8px;
-        }
-
-        /* Header / Nav */
-        header {
-            background: #fff;
-            border-bottom: 1px solid #e5e5e5;
-            position: sticky;
-            top: 0;
-            z-index: 50;
-        }
-
-        .header-inner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 12px 0;
-        }
-
-        .brand {
-            font-weight: 700;
-            font-size: 1.1rem;
-        }
-
-        nav {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #333;
-            padding: 6px 10px;
-            border-radius: 6px;
-        }
-
-        nav a:hover {
-            background: #f0f0f0;
-        }
-
-        /* Hero / Intro */
-        .hero {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            align-items: center;
-            padding: 48px 0;
-        }
-
-        .hero h1 {
-            font-size: 2rem;
-            margin: 0 0 .5rem;
-        }
-
-        .tagline {
-            color: var(--muted);
-        }
-
-        .hero-photo {
-            border-radius: 36px;
-            overflow: hidden;
-            background: transparent;
-            isolation: isolate;
-        }
-
-        .hero-photo img {
-            width: 100%;
-            height: auto;
-            max-height: 480px;
-            display: block;
-            object-fit: contain;
-            object-position: center;
-            border-radius: 36px;
-            clip-path: inset(0 round 36px);
-        }
-
-        section {
-            padding: 48px 0;
-            border-top: 1px solid #eee;
-        }
-
-        section:first-of-type {
-            border-top: none;
-        }
-
-        h2 {
-            font-size: 1.5rem;
-            margin-bottom: 0.75rem;
-        }
-
-        /* Grid of projects / cards */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-        }
-
-        .card {
-            background: var(--card);
-            border: 1px solid #eee;
-            border-radius: 8px;
-            padding: 0.5rem;
-            box-shadow: var(--shadow);
-        }
-
-        .card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 6px;
-            display: block;
-        }
-
-        .card h3 {
-            margin: 0.5rem 0;
-            font-size: 1.05rem;
-        }
-
-        .card p {
-            margin: 0;
-            color: var(--muted);
-        }
-
-        /* Publications / Resume / Experience */
-        .pub-list {
-            padding-left: 1rem;
-        }
-
-        .timeline {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .timeline li {
-            padding: 6px 0;
-            border-bottom: 1px solid #eee;
-        }
-
-        /* Contact form */
-        form {
-            max-width: 720px;
-            margin-top: 8px;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-
-        label {
-            display: block;
-            font-weight: 600;
-            margin: 0.5rem 0 0.25rem;
-        }
-
-        input,
-        textarea {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-        }
-
-        .row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-
-        footer {
-            text-align: center;
-            padding: 16px 0;
-            color: #666;
-            border-top: 1px solid #eee;
-            background: #fff;
-        }
-
-        /* Responsive tweaks */
-        @media (max-width: 900px) {
-            .hero {
-                grid-template-columns: 1fr;
-            }
-
-            .grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f9fc">
+  <meta name="description" content="Dexter Syndergaard is a BYU computer science student focused on machine translation, machine learning, and automation.">
+  <title>Dexter Syndergaard — Computer Science &amp; Machine Translation</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f5f9fc;
+      --surface: #fff;
+      --ink: #142b3c;
+      --muted: #526a7a;
+      --blue: #27689a;
+      --blue-deep: #174b73;
+      --sky: #dceefa;
+      --sky-strong: #b8ddf3;
+      --line: #dce7ee;
+      --radius: 1.25rem;
+      --shadow: 0 20px 60px rgba(25, 72, 104, .10);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 6rem; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--blue-deep); text-underline-offset: .2em; }
+    a:hover { color: var(--blue); }
+    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+      outline: 3px solid #4699cf;
+      outline-offset: 3px;
+    }
+    img { max-width: 100%; }
+    .container { width: min(1120px, calc(100% - 3rem)); margin-inline: auto; }
+    .skip-link {
+      position: fixed; z-index: 100; left: 1rem; top: 1rem;
+      transform: translateY(-180%); padding: .7rem 1rem; border-radius: .6rem;
+      background: var(--ink); color: #fff; font-weight: 700;
+    }
+    .skip-link:focus { transform: translateY(0); }
+    .site-header {
+      position: sticky; top: 0; z-index: 20;
+      border-bottom: 1px solid rgba(220, 231, 238, .9);
+      background: rgba(245, 249, 252, .92);
+      backdrop-filter: blur(14px);
+    }
+    .header-inner { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+    .brand { color: var(--ink); font-size: 1rem; font-weight: 760; letter-spacing: -.03em; text-decoration: none; white-space: nowrap; }
+    .brand-mark { display: inline-grid; width: 2rem; height: 2rem; place-items: center; margin-right: .55rem; border-radius: .65rem; background: var(--blue); color: #fff; font-size: .8rem; vertical-align: middle; }
+    .nav-toggle { display: none; border: 1px solid var(--line); border-radius: .65rem; padding: .55rem .75rem; background: var(--surface); color: var(--ink); font: inherit; font-weight: 650; }
+    .nav-links { display: flex; align-items: center; gap: .2rem; }
+    .nav-links a { padding: .55rem .72rem; border-radius: .6rem; color: var(--muted); font-size: .9rem; font-weight: 600; text-decoration: none; transition: background .2s ease, color .2s ease; }
+    .nav-links a:hover { background: var(--sky); color: var(--blue-deep); }
+    .hero { display: grid; grid-template-columns: 1.02fr .98fr; align-items: center; gap: clamp(3rem, 7vw, 6.5rem); min-height: min(720px, calc(100svh - 76px)); padding-block: 4rem 5.5rem; }
+    .eyebrow { display: inline-flex; align-items: center; gap: .55rem; margin: 0 0 1.15rem; color: var(--blue); font-size: .76rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+    .eyebrow::before { width: 1.5rem; height: 2px; content: ""; background: currentColor; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { max-width: 12ch; margin-bottom: 1.15rem; font-size: clamp(3.4rem, 7.2vw, 6.4rem); line-height: .98; letter-spacing: -.075em; }
+    .hero-copy { max-width: 37rem; color: var(--muted); font-size: clamp(1.1rem, 1.7vw, 1.28rem); line-height: 1.75; }
+    .hero-copy strong { color: var(--ink); font-weight: 650; }
+    .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .9rem; margin-top: 1.9rem; }
+    .button { display: inline-flex; min-height: 3.15rem; align-items: center; justify-content: center; gap: .6rem; padding: .76rem 1.15rem; border: 1px solid transparent; border-radius: .75rem; font-size: .95rem; font-weight: 700; text-decoration: none; transition: transform .2s ease, background .2s ease, box-shadow .2s ease; }
+    .button:hover { transform: translateY(-2px); }
+    .button-primary { background: var(--blue); color: #fff; box-shadow: 0 8px 20px rgba(39, 104, 154, .22); }
+    .button-primary:hover { background: var(--blue-deep); color: #fff; }
+    .button-quiet { color: var(--ink); }
+    .button-quiet:hover { background: var(--sky); color: var(--blue-deep); }
+    .arrow { font-size: 1.12em; }
+    .hero-visual { position: relative; width: min(100%, 440px); justify-self: end; isolation: isolate; animation: drift-in .8s both; }
+    .hero-visual::before { position: absolute; z-index: -1; inset: 9% -8% -7% 14%; border-radius: 2rem; background: var(--sky-strong); content: ""; transform: rotate(4deg); }
+    .hero-visual::after { position: absolute; z-index: -1; top: -1.1rem; right: -1.15rem; width: 6.25rem; height: 6.25rem; border: 1px solid rgba(39,104,154,.25); border-radius: 50%; content: ""; }
+    .hero-visual img { display: block; width: 100%; height: clamp(390px, 49vw, 550px); border: 8px solid #fff; border-radius: 1.8rem; object-fit: cover; object-position: center 35%; box-shadow: var(--shadow); }
+    .photo-note { position: absolute; right: -1.15rem; bottom: 1.6rem; padding: .68rem .95rem; border: 1px solid rgba(220,231,238,.8); border-radius: .8rem; background: #fff; color: var(--ink); box-shadow: 0 10px 28px rgba(25,72,104,.12); font-size: .83rem; font-weight: 700; }
+    .photo-note span { display: inline-block; width: .52rem; height: .52rem; margin-right: .42rem; border-radius: 50%; background: #5eaa85; }
+    .section { padding-block: 6rem; border-top: 1px solid var(--line); }
+    .section-heading { display: grid; grid-template-columns: .72fr 1.28fr; gap: 2rem; align-items: end; margin-bottom: 2.5rem; }
+    .section-heading .eyebrow { grid-column: 1 / -1; margin-bottom: -.9rem; }
+    h2 { margin: 0; font-size: clamp(2rem, 4vw, 3.25rem); line-height: 1.08; letter-spacing: -.055em; }
+    .section-intro { max-width: 43rem; margin: 0; color: var(--muted); font-size: 1.05rem; }
+    .about-grid { display: grid; grid-template-columns: 1.25fr .75fr; gap: 2rem; }
+    .about-copy { max-width: 46rem; color: var(--muted); }
+    .about-copy p:last-child { margin-bottom: 0; }
+    .fact-card { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: var(--line); }
+    .fact { padding: 1.4rem; background: var(--surface); }
+    .fact strong { display: block; color: var(--blue-deep); font-size: 1.55rem; line-height: 1.2; letter-spacing: -.04em; }
+    .fact span { display: block; margin-top: .35rem; color: var(--muted); font-size: .86rem; }
+    .project-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; }
+    .project-card { overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); box-shadow: 0 5px 20px rgba(25,72,104,.035); transition: transform .25s ease, box-shadow .25s ease; }
+    .project-card:hover { transform: translateY(-5px); box-shadow: 0 18px 40px rgba(25,72,104,.11); }
+    .project-art { display: grid; min-height: 178px; place-items: center; overflow: hidden; background: var(--sky); }
+    .project-art svg { width: 100%; height: 178px; }
+    .project-content { padding: 1.35rem 1.4rem 1.5rem; }
+    .project-type { margin-bottom: .65rem; color: var(--blue); font-size: .72rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+    .project-card h3 { margin-bottom: .5rem; font-size: 1.18rem; line-height: 1.3; letter-spacing: -.025em; }
+    .project-card p { margin: 0; color: var(--muted); font-size: .94rem; }
+    .split-section { display: grid; grid-template-columns: .72fr 1.28fr; gap: 3rem; }
+    .split-section > header { align-self: start; }
+    .split-section > header .eyebrow { margin-bottom: 1rem; }
+    .timeline { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--line); }
+    .timeline li { display: grid; grid-template-columns: 9.5rem 1fr; gap: 1.3rem; padding: 1.5rem 0; border-bottom: 1px solid var(--line); }
+    .timeline time { color: var(--blue); font-size: .83rem; font-weight: 750; }
+    .timeline h3 { margin: 0 0 .3rem; font-size: 1.07rem; letter-spacing: -.02em; }
+    .timeline p { margin: 0; color: var(--muted); font-size: .94rem; }
+    .honors { display: flex; flex-wrap: wrap; gap: .65rem; padding: 0; margin: 1.6rem 0 0; list-style: none; }
+    .honors li { padding: .58rem .85rem; border: 1px solid #c8e0ef; border-radius: 99px; background: #edf7fc; color: var(--blue-deep); font-size: .9rem; font-weight: 650; }
+    .resume-strip { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem; }
+    .resume-block { padding: 1.35rem; border: 1px solid var(--line); border-radius: 1rem; background: var(--surface); }
+    .resume-block h3 { margin-bottom: .5rem; font-size: 1rem; }
+    .resume-block p { margin: 0; color: var(--muted); font-size: .92rem; }
+    .contact-panel { display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center; padding: clamp(1.6rem, 5vw, 3.3rem); border-radius: 1.5rem; background: var(--ink); color: #fff; }
+    .contact-panel .eyebrow { color: #a9d6f2; }
+    .contact-panel h2 { margin-bottom: .8rem; }
+    .contact-panel p { max-width: 38rem; margin: 0; color: #ccdae4; }
+    .contact-panel .button { background: #fff; color: var(--blue-deep); white-space: nowrap; }
+    .contact-panel .button:hover { background: var(--sky); }
+    .contact-details { display: flex; flex-wrap: wrap; gap: .7rem 1.3rem; margin-top: 1.3rem; }
+    .contact-details a { color: #d5eafa; font-size: .92rem; }
+    footer { padding-block: 1.5rem; color: var(--muted); font-size: .85rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 1rem; }
+    .footer-inner p { margin: 0; }
+    [data-reveal] { animation: rise-in .65s both; }
+    @keyframes rise-in { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes drift-in { from { opacity: 0; transform: translateY(12px) rotate(1deg); } to { opacity: 1; transform: translateY(0) rotate(0); } }
+    @media (max-width: 850px) {
+      .nav-toggle { display: inline-flex; }
+      .header-inner { position: relative; min-height: 68px; }
+      .nav-links { display: none; position: absolute; top: calc(100% - .2rem); right: 0; left: 0; padding: .65rem; border: 1px solid var(--line); border-radius: .9rem; background: var(--surface); box-shadow: var(--shadow); }
+      .nav-links.is-open { display: grid; grid-template-columns: 1fr 1fr; }
+      .nav-links a { padding: .72rem .8rem; }
+      .hero { min-height: auto; grid-template-columns: 1fr  .8fr; gap: 2rem; padding-block: 4rem; }
+      .hero-visual { width: 100%; }
+      .hero-visual img { height: 420px; }
+      .project-grid { grid-template-columns: 1fr 1fr; }
+      .project-card:last-child { grid-column: 1 / -1; }
+      .split-section { grid-template-columns: 1fr; gap: 1.5rem; }
+    }
+    @media (max-width: 620px) {
+      .container { width: min(100% - 2rem, 1120px); }
+      .hero { grid-template-columns: 1fr; gap: 2.6rem; padding-block: 3.5rem 4rem; }
+      h1 { font-size: clamp(3.2rem, 16vw, 5rem); }
+      .hero-visual { width: min(88%, 390px); justify-self: center; }
+      .hero-visual img { height: 420px; }
+      .photo-note { right: -.7rem; }
+      .section { padding-block: 4.25rem; }
+      .section-heading { grid-template-columns: 1fr; gap: .8rem; margin-bottom: 1.8rem; }
+      .section-heading .eyebrow { grid-column: auto; margin-bottom: 0; }
+      .about-grid, .resume-strip { grid-template-columns: 1fr; }
+      .fact-card { grid-template-columns: 1fr 1fr; }
+      .project-grid { grid-template-columns: 1fr; }
+      .project-card:last-child { grid-column: auto; }
+      .timeline li { grid-template-columns: 1fr; gap: .45rem; }
+      .contact-panel { grid-template-columns: 1fr; gap: 1.4rem; }
+      .contact-panel .button { justify-self: start; }
+      .footer-inner { flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    }
+  </style>
 </head>
-
 <body>
-    <a href="#main" class="skip-link">Skip to content</a>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#home" aria-label="Dexter Syndergaard, home"><span class="brand-mark" aria-hidden="true">DS</span>Dexter Syndergaard</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">Menu</button>
+      <nav class="nav-links" id="primary-navigation" aria-label="Main navigation">
+        <a href="#about">About</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#honors">Honors</a><a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero container" id="home" aria-labelledby="hero-title">
+      <div data-reveal>
+        <p class="eyebrow">Computer science · BYU</p>
+        <h1 id="hero-title">Curious by nature. Building with purpose.</h1>
+        <p class="hero-copy">I’m Dexter, a computer science student exploring <strong>machine translation, machine learning, and thoughtful automation.</strong> I like turning complex problems into useful, dependable tools.</p>
+        <div class="hero-actions"><a class="button button-primary" href="#contact">Let’s connect <span class="arrow" aria-hidden="true">↗</span></a><a class="button button-quiet" href="#projects">Explore my work <span class="arrow" aria-hidden="true">↓</span></a></div>
+      </div>
+      <div class="hero-visual">
+        <img src="photos/hawt_dex.jpg" alt="Dexter Syndergaard outdoors, wearing a light blue shirt" fetchpriority="high">
+        <div class="photo-note"><span aria-hidden="true"></span>Currently at BYU</div>
+      </div>
+    </section>
 
-    <header>
-        <div class="container header-inner" aria-label="Site header">
-            <div class="brand" aria-label="Site brand">
-                Dexter Syndergaard
-            </div>
-            <nav aria-label="Main navigation">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#projects">Projects</a>
-                <a href="#honors">Honors</a>
-                <a href="#resume">Resume</a>
-                <a href="#experience">Experience</a>
-                <a href="#contact">Contact</a>
-            </nav>
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <div class="section-heading"><p class="eyebrow">A little about me</p><h2 id="about-title">A strong foundation, with room to explore.</h2><p class="section-intro">I’m pursuing a B.S. in Computer Science at Brigham Young University, with a 4.0 GPA and an expected graduation in May 2028.</p></div>
+        <div class="about-grid">
+          <div class="about-copy"><p>My hands-on experience spans machine translation research and software automation. I’m especially interested in how machine learning can make communication and everyday systems work better.</p><p>Coursework includes Agentic AI, Computer Systems, Data Structures and Algorithms, Advanced Software Construction, Machine Translation, Machine Learning, and Data Science.</p></div>
+          <div class="fact-card" aria-label="Quick facts"><div class="fact"><strong>4.0</strong><span>GPA at BYU</span></div><div class="fact"><strong>2028</strong><span>Expected graduation</span></div><div class="fact"><strong>50k+</strong><span>Research sentences processed</span></div><div class="fact"><strong>Spanish</strong><span>Fluent</span></div></div>
         </div>
-    </header>
+      </div>
+    </section>
 
-    <main id="main" class="container" role="main">
-
-        <!-- Home / Hero -->
-        <section id="home" class="hero" aria-label="Intro">
-            <div>
-                <h1>Dexter Syndergaard</h1>
-                <p class="tagline">Computer Science student at BYU focused on machine translation, machine learning, and
-                    automation.</p>
-                <a href="#contact" class="primary-btn"
-                    style="display:inline-block; padding:10px 14px; background:#0b5bd3; color:#fff; border-radius:6px; text-decoration:none;">Get
-                    in touch</a>
-            </div>
-            <div class="hero-photo">
-                <img src="photos/hawt_dex.jpg" alt="Dexter Syndergaard" />
-            </div>
-        </section>
-
-        <!-- About -->
-        <section id="about" aria-labelledby="about-title">
-            <h2 id="about-title">About</h2>
-            <p>I am a Brigham Young University Computer Science student (GPA 4.0, expected graduation May 2028) with
-                hands-on experience in machine translation research and software automation.</p>
-            <p>My focus areas include machine translation and machine learning. Relevant coursework includes Agentic AI,
-                Computer Systems, Data Structures and Algorithms, Advanced Software Construction, Intro to Machine
-                Translation, Intro to Machine Learning, and Intro to Data Science.</p>
-        </section>
-
-        <!-- Projects -->
-        <section id="projects" aria-labelledby="projects-title">
-            <h2 id="projects-title">Projects</h2>
-            <div class="grid">
-                <article class="card">
-                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='400'><rect width='600' height='400' fill='%23e5e5e5'/><text x='300' y='200' text-anchor='middle' fill='%23666' font-family='Arial' font-size='20'>Project image</text></svg>"
-                        alt="Project placeholder 1" />
-                    <h3>AI Translation Pipeline (Independent)</h3>
-                    <p>Built a translation pipeline with SentencePiece tokenization and transformer-based models, then
-                        evaluated outputs with BLEU and ChrF metrics.</p>
-                </article>
-                <article class="card">
-                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='400'><rect width='600' height='400' fill='%23e5e5e5'/><text x='300' y='200' text-anchor='middle' fill='%23666' font-family='Arial' font-size='20'>Project image</text></svg>"
-                        alt="Project placeholder 2" />
-                    <h3>GUI Test Automation Workflows</h3>
-                    <p>Automated internal GUI testing workflows using WebDriverIO and Selenium to reduce manual testing
-                        effort and improve reliability.</p>
-                </article>
-                <article class="card">
-                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='400'><rect width='600' height='400' fill='%23e5e5e5'/><text x='300' y='200' text-anchor='middle' fill='%23666' font-family='Arial' font-size='20'>Project image</text></svg>"
-                        alt="Project placeholder 3" />
-                    <h3>System Logging Improvements</h3>
-                    <p>Enhanced logging infrastructure to improve traceability and debugging efficiency in production
-                        systems.</p>
-                </article>
-            </div>
-        </section>
-
-        <!-- Honors -->
-        <section id="honors" aria-labelledby="honors-title">
-            <h2 id="honors-title">Honors and Leadership</h2>
-            <ul class="pub-list">
-                <li>ACM Officer (2026-Present)</li>
-                <li>Eagle Scout</li>
-                <li>Utah Regents Scholarship</li>
-                <li>BYU Full Academic Scholarship</li>
-                <li>National Honor Society</li>
-            </ul>
-        </section>
-
-        <!-- Resume -->
-        <section id="resume" aria-labelledby="resume-title">
-            <h2 id="resume-title">Resume</h2>
-            <p><strong>Education:</strong> BS in Computer Science, Brigham Young University (Expected May 2028), GPA
-                4.0.</p>
-            <p><strong>Skills:</strong> Python, C++, Java, JavaScript, data cleaning, preprocessing, BLEU, ChrF,
-                SentencePiece, Selenium, WebDriverIO, Splunk, logging pipelines, Spanish fluency, mentoring, and
-                communication.</p>
-        </section>
-
-        <!-- Experience -->
-        <section id="experience" aria-labelledby="experience-title">
-            <h2 id="experience-title">Experience</h2>
-            <ol class="timeline">
-                <li><strong>Jan 2026 - Present</strong> - Machine Translation Research Assistant at Brigham Young
-                    University. Supported multilingual translation model development and processed datasets with 50k+
-                    sentences for training and evaluation.</li>
-                <li><strong>Apr 2025 - Aug 2025</strong> - Technical Intern at The Church of Jesus Christ. Automated GUI
-                    workflows with WebDriverIO and Selenium and improved system logging infrastructure.</li>
-                <li><strong>Jan 2022 - May 2022</strong> - Cybersecurity Team Lead at Davis County School District
-                    Catalyst Center. Led a 4-person team performing vulnerability assessments and delivered a mitigation
-                    plan adopted by IT staff.</li>
-            </ol>
-        </section>
-
-        <!-- Contact -->
-        <section id="contact" aria-labelledby="contact-title">
-            <h2 id="contact-title">Contact</h2>
-            <p>Email: <a href="mailto:dsyndergaard@gmail.com">dsyndergaard@gmail.com</a> | Phone: 801-771-4485 | GitHub:
-                <a href="https://github.com/dsynderg" target="_blank" rel="noopener noreferrer">github.com/dsynderg</a>
-            </p>
-            <form action="#" method="post" aria-label="Contact form">
-                <div class="row" style="display:grid; grid-template-columns: 1fr 1fr; gap:1rem;">
-                    <div>
-                        <label for="name3">Name</label>
-                        <input id="name3" name="name" type="text" placeholder="Your name" required />
-                    </div>
-                    <div>
-                        <label for="email3">Email</label>
-                        <input id="email3" name="email" type="email" placeholder="you@example.com" required />
-                    </div>
-                </div>
-                <div style="margin-top:.5rem;">
-                    <label for="message3">Message</label>
-                    <textarea id="message3" name="message" rows="5" placeholder="Your message"></textarea>
-                </div>
-                <button type="submit"
-                    style="margin-top:8px; padding:10px 14px; border-radius:6px; background:#0b5bd3; color:#fff; border:0;">Send
-                    message</button>
-            </form>
-        </section>
-    </main>
-
-    <footer class="footer" aria-label="Site footer">
-        <div class="container">
-            <p>&copy; <span id="yearFooter"></span> Dexter Syndergaard. All rights reserved.</p>
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <div class="section-heading"><p class="eyebrow">Selected work</p><h2 id="projects-title">Projects with practical impact.</h2><p class="section-intro">A few ways I’ve used research and engineering to make software more useful, measurable, and reliable.</p></div>
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-art" aria-hidden="true"><svg viewBox="0 0 480 178" role="presentation"><rect width="480" height="178" fill="#dceefa"/><circle cx="400" cy="23" r="78" fill="#c4e4f5"/><rect x="58" y="39" width="150" height="94" rx="12" fill="#fff"/><rect x="74" y="57" width="50" height="8" rx="4" fill="#7eb6d9"/><rect x="74" y="75" width="116" height="7" rx="3.5" fill="#d1e3ee"/><rect x="74" y="91" width="102" height="7" rx="3.5" fill="#d1e3ee"/><rect x="270" y="45" width="150" height="94" rx="12" fill="#27689a"/><rect x="287" y="62" width="50" height="8" rx="4" fill="#b8ddf3"/><rect x="287" y="80" width="112" height="7" rx="3.5" fill="#78a9c9"/><rect x="287" y="96" width="96" height="7" rx="3.5" fill="#78a9c9"/><path d="M220 86h36m-10-10 10 10-10 10" fill="none" stroke="#174b73" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="project-content"><p class="project-type">Research · NLP</p><h3>AI Translation Pipeline</h3><p>Built a translation pipeline using SentencePiece tokenization and transformer-based models, then evaluated results with BLEU and ChrF metrics.</p></div>
+          </article>
+          <article class="project-card">
+            <div class="project-art" aria-hidden="true"><svg viewBox="0 0 480 178" role="presentation"><rect width="480" height="178" fill="#e6f2f8"/><rect x="135" y="25" width="210" height="128" rx="14" fill="#fff"/><rect x="135" y="25" width="210" height="27" rx="14" fill="#27689a"/><circle cx="154" cy="38" r="4" fill="#dceefa"/><circle cx="169" cy="38" r="4" fill="#dceefa"/><rect x="158" y="70" width="44" height="58" rx="8" fill="#dceefa"/><rect x="218" y="70" width="103" height="9" rx="4" fill="#9fc9e2"/><rect x="218" y="88" width="90" height="8" rx="4" fill="#d3e6f0"/><rect x="218" y="106" width="70" height="8" rx="4" fill="#d3e6f0"/><path d="m172 97 9 9 17-20" fill="none" stroke="#27689a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="m365 59 8 8 14-16m-22 50 8 8 14-16" fill="none" stroke="#5c9ac2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="project-content"><p class="project-type">Automation · QA</p><h3>GUI Test Automation</h3><p>Automated internal GUI testing workflows with WebDriverIO and Selenium to reduce manual testing and improve reliability.</p></div>
+          </article>
+          <article class="project-card">
+            <div class="project-art" aria-hidden="true"><svg viewBox="0 0 480 178" role="presentation"><rect width="480" height="178" fill="#dceefa"/><path d="M78 136h324" stroke="#b5d6e9" stroke-width="2"/><path d="M94 119 158 97l59 9 69-49 56 18 46-37" fill="none" stroke="#27689a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M375 38h14v14" fill="none" stroke="#27689a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="158" cy="97" r="6" fill="#fff" stroke="#27689a" stroke-width="4"/><circle cx="286" cy="57" r="6" fill="#fff" stroke="#27689a" stroke-width="4"/><circle cx="342" cy="75" r="6" fill="#fff" stroke="#27689a" stroke-width="4"/><rect x="92" y="43" width="74" height="29" rx="8" fill="#fff"/><path d="M105 58h12m8 0h27" stroke="#8dbbd7" stroke-width="4" stroke-linecap="round"/></svg></div>
+            <div class="project-content"><p class="project-type">Engineering · Observability</p><h3>System Logging Improvements</h3><p>Enhanced logging infrastructure to make production systems easier to trace, understand, and debug.</p></div>
+          </article>
         </div>
-    </footer>
+      </div>
+    </section>
 
-    <script>
-        // Simple year updater
-        document.getElementById('year') && (document.getElementById('year').textContent = new Date().getFullYear());
-        document.getElementById('yearFooter') && (document.getElementById('yearFooter').textContent = new Date().getFullYear());
-    </script>
+    <section class="section" id="experience" aria-labelledby="experience-title">
+      <div class="container split-section">
+        <header><p class="eyebrow">Experience</p><h2 id="experience-title">Learning by doing.</h2></header>
+        <ol class="timeline">
+          <li><time datetime="2026-01">Jan 2026 — Present</time><div><h3>Machine Translation Research Assistant · BYU</h3><p>Supported multilingual translation model development and processed datasets with 50k+ sentences for training and evaluation.</p></div></li>
+          <li><time datetime="2025-04">Apr 2025 — Aug 2025</time><div><h3>Technical Intern · The Church of Jesus Christ</h3><p>Automated GUI workflows with WebDriverIO and Selenium and improved system logging infrastructure.</p></div></li>
+          <li><time datetime="2022-01">Jan 2022 — May 2022</time><div><h3>Cybersecurity Team Lead · Davis County School District Catalyst Center</h3><p>Led a four-person vulnerability assessment team and delivered a mitigation plan adopted by IT staff.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="honors" aria-labelledby="honors-title">
+      <div class="container split-section">
+        <header><p class="eyebrow">Beyond the classroom</p><h2 id="honors-title">Honors &amp; leadership.</h2></header>
+        <div><p class="section-intro">I value showing up for my community, taking initiative, and continuing to learn.</p><ul class="honors"><li>ACM Officer (2026–Present)</li><li>Eagle Scout</li><li>Utah Regents Scholarship</li><li>BYU Full Academic Scholarship</li><li>National Honor Society</li></ul>
+          <div class="resume-strip"><div class="resume-block"><h3>Education</h3><p>B.S. in Computer Science, Brigham Young University<br>Expected May 2028 · GPA 4.0</p></div><div class="resume-block"><h3>Tools &amp; skills</h3><p>Python, C++, Java, JavaScript, SentencePiece, BLEU, ChrF, Selenium, WebDriverIO, Splunk, data processing, Spanish, mentoring.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="container"><div class="contact-panel"><div><p class="eyebrow">Get in touch</p><h2 id="contact-title">Have a good problem to solve?</h2><p>I’m always happy to talk about research, engineering, or new opportunities. Send me a note and let’s start a conversation.</p><div class="contact-details"><a href="mailto:dsyndergaard@gmail.com">dsyndergaard@gmail.com</a><a href="tel:+18017714485">801-771-4485</a><a href="https://github.com/dsynderg" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></div><a class="button" href="mailto:dsyndergaard@gmail.com">Email Dexter <span class="arrow" aria-hidden="true">↗</span></a></div></div>
+    </section>
+  </main>
+  <footer><div class="container footer-inner"><p>© <span id="year"></span> Dexter Syndergaard</p><p>Designed with care in light blue.</p></div></footer>
+  <script>
+    // Keep the compact navigation keyboard and screen-reader friendly on mobile.
+    const menuButton = document.querySelector('.nav-toggle');
+    const navigation = document.querySelector('#primary-navigation');
+    menuButton.addEventListener('click', () => {
+      const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+      menuButton.setAttribute('aria-expanded', String(!isOpen));
+      navigation.classList.toggle('is-open', !isOpen);
+    });
+    navigation.addEventListener('click', (event) => {
+      if (event.target.closest('a')) {
+        menuButton.setAttribute('aria-expanded', 'false');
+        navigation.classList.remove('is-open');
+      }
+    });
+    document.querySelector('#year').textContent = new Date().getFullYear();
+  </script>
 </body>
-
 </html>
